@@ -1,4 +1,7 @@
-<?php require_once('/usr/script/auth.inc.php'); ?><!DOCTYPE html>
+<?php
+	require_once('/usr/script/auth.inc.php');
+	require_once('/usr/script/noCache.inc.php');
+?><!DOCTYPE html>
 <html>
 	<head>
 		<title>Edit Victory Service Archives</title>

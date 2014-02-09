@@ -1,6 +1,4 @@
-<?php
-	require_once('/usr/script/noCache.inc.php');
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Victory Service Archives</title>

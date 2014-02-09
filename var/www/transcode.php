@@ -1,5 +1,6 @@
 <?php
 	require_once('/usr/script/db.inc.php');
+	require_once('/usr/script/noCache.inc.php');
 	$resourceId=intval($_GET['resource']);
 	$format=intval($_GET['format']);
 	db0('INSERT INTO cache (resource, format) SELECT ?, ? WHERE NOT EXISTS (SELECT 1 FROM cache WHERE resource=? AND format=?)', $resourceId, $format, $resourceId, $format);

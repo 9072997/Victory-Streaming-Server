@@ -1,9 +1,9 @@
-<!DOCTYPE html>
 <?php
 	require_once('/usr/script/db.inc.php');
+	require_once('/usr/script/noCache.inc.php');
 	$resourceId=intval($_GET['resource']);
 	if(db1('SELECT format FROM resources WHERE id=?', $resourceId)->format == 1) {
-?>
+?><!DOCTYPE html>
 		<html>
 			<head>
 				<title>Play Audio Resource</title>
