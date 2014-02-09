@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 	require_once('/usr/script/db.inc.php');
-	db0('UPDATE configuration SET value=\'false\' WHERE key=\'live\')');
+	db0('UPDATE configuration SET contents=\'false\' WHERE var=\'live\')');
 	if(filesize('/tmp/dump.ogg') > 2 * 1024 * 1024) {
 		date_default_timezone_set('America/Chicago');
 		db0('INSERT INTO services(name) values (?)', date('F j, y A'));
