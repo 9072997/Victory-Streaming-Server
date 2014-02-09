@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+	require_once('/usr/script/noCache.inc.php');
+?><!DOCTYPE html>
 <html>
 	<head>
 		<title>Victory Service Archives</title>
@@ -55,5 +57,34 @@
 				}
 			?>
 		</div>
+		<script>
+			var request;
+			if(window.XMLHttpRequest) {
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				request = new XMLHttpRequest();
+			} else {
+				// code for IE6, IE5
+				request = new ActiveXObject('Microsoft.XMLHTTP');
+			}
+			
+			request.onreadystatechange = function() {
+				if(request.readyState == 4) {
+					if(request.status == 200) {
+						if(request.responseText == 'true') {
+							if(confirm('LIVE stream is avalible. OK to load?')) {
+								window.location = 'http://' + window.location.host + '/playLive.php';
+							}
+						} else {
+							setTimeout(function() {
+								request.open('GET', 'checkLive.php', true);
+								request.send();
+							}, 30000);
+						}
+					}
+				}
+			}
+			request.open('GET', 'checkLive.php',true);
+			request.send();
+		</script>
 	</body>
 </html>
