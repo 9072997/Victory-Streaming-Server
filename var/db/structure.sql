@@ -9,6 +9,7 @@ CREATE TABLE resources (
   service INTEGER,
   name TEXT,
   format INTEGER,
+  backedup BOOLEAN DEFAULT 0,
   FOREIGN KEY(service) REFERENCES service(id)
 );
 
