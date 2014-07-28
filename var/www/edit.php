@@ -21,9 +21,14 @@
 			} elseif (isset($_POST['name']) && strlen($_POST['name'])) {
 				$name = strip_tags($_POST['name']);
 				db0('INSERT INTO services (name) VALUES (?)', $name);
+			} elseif (isset($_POST['delete']) && intval($_POST['delete'])) {
+				$serviceId = intval($_POST['delete']);
+				db0('DELETE FROM services WHERE id=?', $serviceId);
+				db0('UPDATE resources SET service=NULL WHERE service=?', $serviceId);
 			}
 			$services = db('SELECT id,name,ts FROM services ORDER BY strftime(\'%s\',ts) DESC');
 			foreach($services as $service) {
+				echo '<hr />';
 				echo '<form method="post">';
 				if(isset($service->name) && strlen($service->name)) {
 					$serviceDisplayName = $service->name;
@@ -36,7 +41,11 @@
 				echo '<input type="text" name="name" value="' . $serviceDisplayName . '" />';
 				echo '<input type="hidden" name="service" value="' . $service->id . '" />';
 				echo '<input type="submit" />';
+				echo '</form>';
+				echo '<form method="post">';
 				echo '<a href="editResources.php?service=' . $service->id . '">edit resources</a>';
+				echo '<input type="hidden" name="delete" value="' . $service->id . '" />';
+				echo '<input type="submit" value="Delete"/>';
 				echo '</form>';
 			}
 		?>
