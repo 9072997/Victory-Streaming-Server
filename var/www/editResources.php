@@ -57,7 +57,7 @@
 				<option value="0">Other</option>
 				<option value="1">Audio (OGG)</option>
 			</select>
-			<input type="submit" />
+			<input type="submit" value="Upload" />
 		</form>
 		<a href="edit.php"> &lt;-Back</a>
 	</body>

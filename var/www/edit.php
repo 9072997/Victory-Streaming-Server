@@ -40,7 +40,7 @@
 				echo 'Date:' . $service->ts;
 				echo '<input type="text" name="name" value="' . $serviceDisplayName . '" />';
 				echo '<input type="hidden" name="service" value="' . $service->id . '" />';
-				echo '<input type="submit" />';
+				echo '<input type="submit" value="Update" />';
 				echo '</form>';
 				echo '<form method="post">';
 				echo '<a href="editResources.php?service=' . $service->id . '">edit resources</a>';
